@@ -1,10 +1,11 @@
+use crate::refresh_tray_ui;
 use crate::watcher::WatcherStatus;
 use crate::wows::{save_config, AppConfig};
 use keyring::Entry;
 use std::collections::HashMap;
 use std::sync::Arc;
 use std::time::Duration;
-use tauri::AppHandle;
+use tauri::{AppHandle, Manager};
 use tauri_plugin_opener::OpenerExt;
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net::TcpListener;
@@ -129,6 +130,20 @@ pub async fn start_loopback_login(
                 Some(ref l) => format!("Linked WG account: {l}"),
                 None => "Linked WG account".to_string(),
             });
+        }
+        info!(account = ?label, "Linked WG account");
+        refresh_tray_ui(&app).await;
+
+        // Sync the WebView's HttpOnly session cookie so the UI logs in automatically.
+        if let Some(win) = app.get_webview_window("main") {
+            let tok_json = serde_json::to_string(token).unwrap_or_else(|_| "\"\"".to_string());
+            let js = format!(
+                "fetch('/api/auth/session-cookie', {{ method: 'POST', headers: {{ 'Authorization': 'Bearer ' + {tok_json} }}, credentials: 'include' }}).finally(() => {{ window.location.href = '/?auth=success'; }});"
+            );
+            let _ = win.eval(&js);
+            let _ = win.show();
+            let _ = win.unminimize();
+            let _ = win.set_focus();
         }
 
         (
