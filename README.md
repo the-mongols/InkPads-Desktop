@@ -1,15 +1,15 @@
-# InkPads Desktop
+# InkPads-Desktop
 
-**InkPads Desktop** is a lightweight Windows companion app for [InkPads](https://inkpads.pages.dev/)—the World of Warships Clan Battles replay vault and tactical minimap analyzer.
+**InkPads-Desktop** is a lightweight Windows companion app for [InkPads](https://inkpads.pages.dev/), the World of Warships Clan Battles replay vault and Sabermetrics tool for stats and analysis throughout a CB season.
 
-Instead of manually dragging and dropping `.wowsreplay` files into your browser after every match, InkPads Desktop runs quietly in your Windows system tray and handles Clan Battle replay intake automatically.
+Instead of manually dragging and dropping `.wowsreplay` files into your browser after every match, InkPads-Desktop runs quietly in your Windows system tray and handles Clan Battle replay intake automatically.
 
 ---
 
 ## What It Does
-- **Automatic `replays\` Watcher:** Automatically finds your World of Warships installation (WGC, Steam, or Epic) and watches for newly finished `.wowsreplay` files—including new subfolders created after game patches.
-- **Strictly Clan Battles Only:** Randoms, Co-op, Ranked, Brawl, Operations, Training Rooms, and intra-clan Scrims are filtered out locally on your PC before any upload happens.
-- **Fast & Bandwidth-Friendly:** Only reads the tiny replay header locally (`<1ms`). Clan Battle **victories** record stats with **0 bytes** of replay video uploaded; only **defeats** are uploaded for minimap rendering.
+- **Automatic `replays\` Watcher:** Automatically finds your World of Warships installation (WGC, Steam, or Epic) and watches for newly finished `.wowsreplay` files, including new subfolders created after game patches.
+- **Strictly Clan Battles Only:** Randoms, Co-op, Ranked, Brawl, Operations, Training Rooms, and inter-clan Scrims are filtered out locally on your PC before any upload happens.
+- **Fast & Bandwidth-Friendly:** Only reads the tiny replay header locally (`<1ms`). Clan Battle **victories** record stats with **0 bytes** of replay video uploaded; only **defeats** are uploaded for minimap-rendering.
 - **Runs in the Background:** Closing the window minimizes InkPads to your system tray so it keeps watching throughout your Clan Battle session.
 - **Always Up to Date:** Web dashboard updates appear automatically, and desktop app updates are delivered via signed releases.
 
@@ -27,6 +27,7 @@ Instead of manually dragging and dropping `.wowsreplay` files into your browser 
 
 ## How to Use
 1. **Link Your Wargaming Account:**
+   - **InkPads is officially approved by Wargaming for the community and complies with all OpenID authentication processes.**
    - Right-click the **InkPads** icon in your Windows system tray (bottom-right near the clock).
    - Hover over **Link WG Account** and choose your region (**North America (NA)**, **Europe (EU)**, or **Asia (ASIA)**).
    - Sign in with Wargaming OpenID in your browser—the InkPads window will automatically log in and link your clan to the background watcher.
