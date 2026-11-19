@@ -16,12 +16,12 @@ Instead of manually dragging and dropping `.wowsreplay` files into your browser 
 ---
 
 ## How to Install
-1. Download **`InkPads_0.1.1_x64-setup.exe`** (or the latest version) from the [**Releases**](https://github.com/the-mongols/InkPads-Desktop/releases/latest) page.
+1. Download **`InkPads_0.1.2_x64-setup.exe`** (or the latest version) from the [**Releases**](https://github.com/the-mongols/InkPads-Desktop/releases/latest) page.
 2. Double-click the `.exe` to run the installer.
    - *Note:* Because early builds are not yet Authenticode-signed, Windows SmartScreen may show *"Windows protected your PC"*. Click **More info → Run anyway** to continue.
 3. Launch **InkPads** from your Start Menu.
 
-*(For modpacks / silent install: `InkPads_0.1.1_x64-setup.exe /S`)*
+*(For modpacks / silent install: `InkPads_0.1.2_x64-setup.exe /S`)*
 
 ---
 

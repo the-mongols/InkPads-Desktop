@@ -199,13 +199,22 @@ pub fn spawn_watcher(
 
                         processed_clone.write().await.insert((path.clone(), size));
 
+                        let token = token_clone.read().await.clone();
+                        if probe.is_clan_battle && token.is_none() {
+                            let msg = format!(
+                                "Clan Battle detected ({}) — link WG Account in tray to upload",
+                                probe.filename
+                            );
+                            info!(event = %msg);
+                            status_clone.write().await.last_event = Some(msg);
+                            return;
+                        }
+
                         // Stagger Clan Battle preflight calls (1–4s) so caller & backup don't burst simultaneously.
                         if probe.is_clan_battle {
                             let jitter_ms = 1000 + (uuid::Uuid::new_v4().as_u128() % 3000) as u64;
                             tokio::time::sleep(Duration::from_millis(jitter_ms)).await;
                         }
-
-                        let token = token_clone.read().await.clone();
                         match uploader_clone
                             .process_replay(&path, &probe, token.as_deref())
                             .await
