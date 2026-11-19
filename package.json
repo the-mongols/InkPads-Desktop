@@ -1,0 +1,14 @@
+{
+  "name": "inkpads-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "InkPads Desktop Companion — Clan Battles Replay Watcher",
+  "scripts": {
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.5.0"
+  }
+}
